@@ -1,0 +1,7 @@
+U:\seminar programovani\alikuv-repositar\4. - 27.9.2024\Calculator\Calculator\bin\Debug\Calculator.exe.config
+U:\seminar programovani\alikuv-repositar\4. - 27.9.2024\Calculator\Calculator\bin\Debug\Calculator.exe
+U:\seminar programovani\alikuv-repositar\4. - 27.9.2024\Calculator\Calculator\bin\Debug\Calculator.pdb
+U:\seminar programovani\alikuv-repositar\4. - 27.9.2024\Calculator\Calculator\obj\Debug\Calculator.csproj.AssemblyReference.cache
+U:\seminar programovani\alikuv-repositar\4. - 27.9.2024\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+U:\seminar programovani\alikuv-repositar\4. - 27.9.2024\Calculator\Calculator\obj\Debug\Calculator.exe
+U:\seminar programovani\alikuv-repositar\4. - 27.9.2024\Calculator\Calculator\obj\Debug\Calculator.pdb

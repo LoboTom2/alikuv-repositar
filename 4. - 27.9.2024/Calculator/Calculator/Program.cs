@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +37,114 @@ namespace Calculator
              * 3) Umozni uzivateli zadavat i desetinna cisla, tedy prekopej kalkulacku tak, aby umela pracovat s floaty
              */
 
+            double firstNum = 0;
+            double secondNum = 0;
+            int thirdNum = 0;
+            int decimalNum = 0;
+            string thirdString = "";
+            // určíme si neznámé se kterými budeme pracovat
+            Console.WriteLine("Pro přístup ke kalkulačce napiš: kalkulčka. Pro přechod mezi soustavami napiš: převod");
+            string answer = Console.ReadLine();
+            // vybereme si zda budeme používat kalkulačku nebo převod soustav
+            if (answer == "kalkulačka")
+            { 
+            while (true)
+            {
+                Console.WriteLine("Napiš první číslo.");
+                string input = Console.ReadLine();
+                if (double.TryParse(input, out firstNum))
+                {
+                    firstNum = Convert.ToDouble(input);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Zadané číslo není platné. Zkuste to prosím znovu.");
+                }
+            }
+            while (true)
+            {
+                Console.WriteLine("Napiš druhé číslo.");
+                string input = Console.ReadLine();
+                if (double.TryParse(input, out secondNum))
+                {
+                    secondNum = Convert.ToDouble(input);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Zadané číslo není platné. Zkuste to prosím znovu.");
+                }
+                    // zkontrolujeme zda je input číslo, pokud ne opakujeme výzvu
+                }
+                while (true) 
+            {
+                Console.WriteLine("Napiš číselnou operaci (+,-,*,/,^,sqrt).");
+                string operace = Console.ReadLine();
+                if (operace == "+") 
+                {
+                    Console.WriteLine(firstNum + secondNum);
+                    break;
+                }
+                else if (operace == "-") 
+                {
+                    Console.WriteLine(firstNum - secondNum);
+                    break;
+                }
+                else if (operace == "*")
+                {
+                    Console.WriteLine(firstNum * secondNum);
+                    break;
+                }
+                else if (operace == "/")
+                {
+                    if (secondNum == 0)
+                    {
+                        Console.WriteLine("Nelze dělit nulou. Zkuste to prosím znovu.");
+                    }
+                    else
+                    Console.WriteLine(firstNum / secondNum);
+                    break;
+                }
+                else if (operace == "^")
+                {
+                    Console.WriteLine(Math.Pow(firstNum, secondNum));
+                    break;
+                }
+                else if (operace == "sqrt")
+                {
+                    if (firstNum < 0)
+                    {
+                        Console.WriteLine("Nelze odmocnit záporné číslo. Zkuste to prosím znovu.");
+                    }
+                    else
+                    Console.WriteLine(Math.Sqrt(firstNum));
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Zadaná operace je neplatná. Zkuste to prosím znovu.");
+                }
+                    //stejný postup opakujeme pro zadání operace (program by fungoval i pomocí příkazu case)
+                }
+            }
+            else if (answer == "převod")
+            {
+                Console.WriteLine("Do jaké soustavy chceš převádět? Vyćházíme z desítkové.");
+                string input2 = Console.ReadLine();
+                if (int.TryParse(input2, out decimalNum))
+                {
+                    decimalNum = Convert.ToInt32(input2);
+                    Console.WriteLine("Jaké číslo chceš převádět?");
+                    thirdString = Console.ReadLine();
+                    thirdNum = Convert.ToInt32(thirdString);
+                    string binaryNum = Convert.ToString(thirdNum, decimalNum);
+                    Console.WriteLine(binaryNum);
+                }
+                // převod soustav - inspirován ChatGPT, vlastní přepis
+            }
+            else { Console.WriteLine("Zadaný příkaz není platný.");
+            }
             Console.ReadKey(); //Toto nech jako posledni radek, aby se program neukoncil ihned, ale cekal na stisk klavesy od uzivatele.
         }
     }
